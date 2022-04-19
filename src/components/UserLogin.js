@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Card, Button, Accordion, Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { setLoggedInUser } from "../features/loggedInSlice";
+import { loginUser } from "../features/loggedInSlice";
 
 export default function UserLogin() {
   let navigate = useNavigate();
@@ -24,8 +24,25 @@ export default function UserLogin() {
     );
   }
 
+  function getLoggedIn() {
+    authorizeUser()
+      .then((response) => {
+        console.log(response);
+        dispatch(setLoggedInUser(authorizedUser));
+      })
+
+      .then((data) => {
+        console.log(data);
+        navigate("home");
+      });
+  }
+
   useEffect(() => {
     dispatch(setLoggedInUser(authorizedUser));
+
+    return () => {
+      navigate("home");
+    };
   }, [authorizedUser]);
 
   function authorizeLogin() {

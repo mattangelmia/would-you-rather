@@ -14,8 +14,12 @@ export const loggedIn = createSlice({
       console.log(action.payload);
       state.authUser = action.payload;
     },
+    logOutUser: (state, action) => {
+      console.log(action.payload);
+      state.authUser = action.payload;
+    },
   },
 });
 
 export default loggedIn.reducer;
-export const { setLoggedInUser } = loggedIn.actions;
+export const { setLoggedInUser, logOutUser } = loggedIn.actions;
