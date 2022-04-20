@@ -1,5 +1,11 @@
 import React from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Card, Button, Accordion, Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +14,8 @@ import { setLoggedInUser } from "../features/loggedInSlice";
 import { loginUser } from "../features/loggedInSlice";
 
 export default function UserLogin() {
+  const location = useLocation();
+  console.log(location.pathname);
   let navigate = useNavigate();
   const users = useSelector((state) => state.users);
   const state = useSelector((state) => state);
@@ -19,31 +27,18 @@ export default function UserLogin() {
   };
 
   function authorizeUser() {
-    setauthorizedUser(
-      users.filter((userName) => userName.firstName === user)[0]
-    );
+    const selectedUser = users.find((userName) => userName.firstName === user);
+    console.log(selectedUser);
+    // setauthorizedUser(
+    //   users.filter((userName) => userName.firstName === user)[0]
+    // );
+    dispatch(setLoggedInUser(selectedUser));
+    navigate("main");
   }
 
-  function getLoggedIn() {
-    authorizeUser()
-      .then((response) => {
-        console.log(response);
-        dispatch(setLoggedInUser(authorizedUser));
-      })
-
-      .then((data) => {
-        console.log(data);
-        navigate("home");
-      });
-  }
-
-  useEffect(() => {
-    dispatch(setLoggedInUser(authorizedUser));
-
-    return () => {
-      navigate("home");
-    };
-  }, [authorizedUser]);
+  // useEffect(() => {
+  //   dispatch(setLoggedInUser(authorizedUser));
+  // }, [authorizedUser]);
 
   function authorizeLogin() {
     console.log(state);
