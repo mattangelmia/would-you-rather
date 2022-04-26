@@ -33,7 +33,7 @@ export default function UserLogin() {
     //   users.filter((userName) => userName.firstName === user)[0]
     // );
     dispatch(setLoggedInUser(selectedUser));
-    navigate("main");
+    navigate("/");
   }
 
   // useEffect(() => {
@@ -90,8 +90,6 @@ export default function UserLogin() {
             </Button>
           </div>
         </Card>
-
-        <button onClick={authorizeLogin}>click</button>
       </div>
     </div>
   );

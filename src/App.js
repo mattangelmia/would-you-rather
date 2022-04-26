@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import TestComponent from "./components/TestComponent";
 import Main from "./components/Main";
+import QuestionCard from "./components/QuestionCard";
 import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import { Card, Button, Accordion, Dropdown } from "react-bootstrap";
@@ -13,10 +14,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<UserLogin />} />
-        <Route path="main" element={<Main />} />
-
-        <Route path="testcomponent" element={<TestComponent />} />
+        <Route exact path="main" element={<UserLogin />} />
+        <Route path="/" element={<Main />} />
+        <Route path="question/:questionId" element={<QuestionCard />} />
+        <Route path="/testcomponent" element={<TestComponent />} />
       </Routes>
     </div>
   );

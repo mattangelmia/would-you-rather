@@ -11,14 +11,19 @@ export default function NavBar() {
   console.log(state);
 
   function logOut() {
-    navigate("/");
+    navigate("/main");
   }
 
   const loggedInFirstName = state.loggedIn.authUser.firstName;
 
   return (
     <div style={{ display: "flex" }}>
-      <Nav justify variant="tabs" defaultActiveKey="/home">
+      <Nav
+        justify
+        variant="tabs"
+        defaultActiveKey="/home"
+        style={{ width: "100vw" }}
+      >
         <Nav.Item>
           <Nav.Link>Home</Nav.Link>
         </Nav.Item>
@@ -29,12 +34,19 @@ export default function NavBar() {
           <Nav.Link>Leaderboard</Nav.Link>
         </Nav.Item>
       </Nav>
-      <h5 style={{ paddingLeft: "15px", paddingTop: "15px" }}>
-        Welcome {loggedInFirstName}
-      </h5>
-      <Button onClick={logOut} style={{ marginLeft: "5%" }}>
-        Logout
-      </Button>
+      <div
+        style={{
+          display: "flex",
+          borderBottom: "1px solid #dee2e6",
+        }}
+      >
+        <h5 style={{ paddingLeft: "15px", paddingTop: "15px" }}>
+          Welcome {loggedInFirstName}
+        </h5>
+        <Button onClick={logOut} style={{ marginLeft: "5%" }}>
+          Logout
+        </Button>
+      </div>
     </div>
   );
 }
