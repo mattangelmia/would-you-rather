@@ -15,7 +15,7 @@ import { loginUser } from "../features/loggedInSlice";
 
 export default function UserLogin() {
   const location = useLocation();
-  console.log(location.pathname);
+
   let navigate = useNavigate();
   const users = useSelector((state) => state.users);
   const state = useSelector((state) => state);
@@ -28,7 +28,7 @@ export default function UserLogin() {
 
   function authorizeUser() {
     const selectedUser = users.find((userName) => userName.firstName === user);
-    console.log(selectedUser);
+
     // setauthorizedUser(
     //   users.filter((userName) => userName.firstName === user)[0]
     // );
@@ -40,11 +40,7 @@ export default function UserLogin() {
   //   dispatch(setLoggedInUser(authorizedUser));
   // }, [authorizedUser]);
 
-  function authorizeLogin() {
-    console.log(state);
-  }
-
-  console.log(state);
+  function authorizeLogin() {}
 
   return (
     <div>

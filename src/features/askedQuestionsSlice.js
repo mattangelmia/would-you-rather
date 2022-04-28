@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { answeredQuestionsReducer } from "./answeredQuestionsSlice";
 
 const initialState = [
   {
@@ -25,6 +26,16 @@ const initialState = [
 export const askedQuestionsReducer = createSlice({
   name: "askedQuestionsSlice",
   initialState,
+  reducers: {
+    removeAnsweredQuestion: (state, action) => {
+      console.log("removed");
+      let filteredState = state.filter(
+        (stateItem) => stateItem.id !== action.payload.id
+      );
+      return filteredState;
+    },
+  },
 });
 
 export default askedQuestionsReducer.reducer;
+export const { removeAnsweredQuestion } = askedQuestionsReducer.actions;

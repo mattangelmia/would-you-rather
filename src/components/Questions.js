@@ -6,12 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 export default function Questions(asked) {
   const navigate = useNavigate();
   function getQuestion() {
-    console.log(asked);
     // navigate(`question/${question.id}`);
   }
 
   const state = useSelector((state) => state.questions);
-  console.log(state);
+
   return (
     <div
       id="questions-section"

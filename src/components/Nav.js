@@ -8,7 +8,6 @@ export default function NavBar() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  console.log(state);
 
   function logOut() {
     navigate("/main");

@@ -11,11 +11,9 @@ export const loggedIn = createSlice({
   initialState,
   reducers: {
     setLoggedInUser: (state, action) => {
-      console.log(action.payload);
       state.authUser = action.payload;
     },
     logOutUser: (state, action) => {
-      console.log(action.payload);
       state.authUser = action.payload;
     },
   },
