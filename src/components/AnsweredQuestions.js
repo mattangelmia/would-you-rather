@@ -3,28 +3,10 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Card, Button, Accordion, Dropdown, Nav } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function Questions(props) {
+export default function AnsweredQuestions(props) {
+  const answeredQuestions = useSelector((state) => state.answeredQuestions);
+  console.log(answeredQuestions);
   const navigate = useNavigate();
-  function getQuestion() {
-    // navigate(`question/${question.id}`);
-  }
-  console.log(useSelector((state) => state.answeredQuestions));
-
-  const state = useSelector((state) => state.questions);
-  const globalState = useSelector((state) => state);
-  let answeredBy = state.map((stateItem) => stateItem.answeredBy);
-  let arr = answeredBy.map((item) => item);
-  const flattened = arr.flat();
-  let filtered = flattened.filter(
-    (item) => item === globalState.loggedIn.authUser.firstName
-  );
-
-  const newState = state.filter(
-    (stateItem) => !stateItem.answeredBy.includes(filtered[0])
-  );
-
-  console.log(globalState);
-
   return (
     <div
       id="questions-section"
@@ -35,7 +17,7 @@ export default function Questions(props) {
         alignItems: "center",
       }}
     >
-      {newState.map((question, index) => (
+      {answeredQuestions.map((question, index) => (
         <div key={index}>
           <Card style={{ width: "40vw", margin: "30px" }}>
             <Card.Header>Featured</Card.Header>

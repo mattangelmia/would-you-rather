@@ -49,7 +49,7 @@ export default function Results(props) {
                 >
                   <h3>{askedQuestionByUser[0].option1.name}</h3>
                   <h5>
-                    {askedQuestionByUser[0].option1.count}out of {totalVotes}
+                    {askedQuestionByUser[0].option1.count} out of {totalVotes}
                     votes
                   </h5>
                 </div>
@@ -63,7 +63,7 @@ export default function Results(props) {
                 >
                   <h3>{askedQuestionByUser[0].option2.name}</h3>
                   <h5>
-                    {askedQuestionByUser[0].option2.count}out of {totalVotes}
+                    {askedQuestionByUser[0].option2.count} out of {totalVotes}
                     votes
                   </h5>
                 </div>

@@ -11,7 +11,7 @@ import { useState, useEffect, useReducer } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import NavBar from "./Nav";
-import { addAnsweredQuestion } from "../features/answeredQuestionsSlice";
+import { addAnswered } from "../features/answeredQuestionsSlice";
 import { removeAnsweredQuestion } from "../features/askedQuestionsSlice";
 import Results from "./Results";
 
@@ -158,7 +158,21 @@ export default function QuestionCard(props) {
 
     // console.log("submitted");
 
-    // dispatch(addAnsweredQuestion(payLoad));
+    dispatch(
+      addAnswered({
+        answeredBy: newFilteredQuestion.answeredBy,
+        askedBy: newFilteredQuestion.askedBy,
+        id: newFilteredQuestion.id,
+        option1: {
+          ...newFilteredQuestion.option1,
+          count: newFilteredQuestion.option1.count + option1Count,
+        },
+        option2: {
+          ...newFilteredQuestion.option2,
+          count: newFilteredQuestion.option2.count + option2Count,
+        },
+      })
+    );
     dispatch(removeAnsweredQuestion(newQuestions));
     //
     setResultsState("block");

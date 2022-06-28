@@ -12,6 +12,14 @@ export default function NavBar() {
     navigate("/main");
   }
 
+  function goHome() {
+    navigate("/");
+  }
+
+  function goToPoll() {
+    navigate("/newpoll");
+  }
+
   const loggedInFirstName = state.loggedIn.authUser.firstName;
 
   return (
@@ -23,10 +31,10 @@ export default function NavBar() {
         style={{ width: "100vw" }}
       >
         <Nav.Item>
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link onClick={goHome}>Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>New Poll </Nav.Link>
+          <Nav.Link onClick={goToPoll}>New Poll </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link>Leaderboard</Nav.Link>
