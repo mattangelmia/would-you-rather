@@ -23,7 +23,13 @@ export default function Questions(props) {
     (stateItem) => !stateItem.answeredBy.includes(filtered[0])
   );
 
-  console.log(globalState);
+  console.log(globalState.questions.filter);
+
+  console.log(
+    globalState.questions.filter(
+      (element) => globalState.answeredQuestions.id === element.id
+    )
+  );
 
   return (
     <div
@@ -35,7 +41,7 @@ export default function Questions(props) {
         alignItems: "center",
       }}
     >
-      {newState.map((question, index) => (
+      {globalState.questions.map((question, index) => (
         <div key={index}>
           <Card style={{ width: "40vw", margin: "30px" }}>
             <Card.Header>Featured</Card.Header>

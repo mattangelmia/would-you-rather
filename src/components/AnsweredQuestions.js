@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function AnsweredQuestions(props) {
   const answeredQuestions = useSelector((state) => state.answeredQuestions);
-  console.log(answeredQuestions);
+
   const navigate = useNavigate();
   return (
     <div
