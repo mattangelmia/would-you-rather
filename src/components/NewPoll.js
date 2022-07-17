@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Accordion, Dropdown, Nav, Form } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { updateAskedTotal } from "../features/usersSlice";
 import { addAnsweredQuestion } from "../features/askedQuestionsSlice";
 import { addAnswered } from "../features/answeredQuestionsSlice";
 import NavBar from "./Nav";
@@ -13,13 +14,15 @@ export default function NewPoll() {
   const loggedInUser = useSelector((state) => state.loggedIn);
   const globalState = useSelector((state) => state);
   const dispatch = useDispatch();
+  let numberOfAskedQuestions = globalState.questions.filter(
+    (question) => question.askedBy === "matt"
+  );
+  console.log(numberOfAskedQuestions.length);
 
   let navigate = useNavigate();
   function goHome() {
     navigate("/");
   }
-
-  console.log(globalState.questions);
 
   function setQuestion(e) {
     if (e.target.placeholder === "Enter Option 1") {
@@ -35,8 +38,6 @@ export default function NewPoll() {
     const newId =
       globalState.questions[globalState.questions.length - 1].id + 1;
 
-    console.log(newId);
-
     let newQuestion = {
       id: newId,
       option1: { name: newOption1, count: 0 },
@@ -45,9 +46,25 @@ export default function NewPoll() {
       answeredBy: [],
     };
 
+    let currentUser = loggedInUser.authUser;
+    let newTotal = currentUser.askedTotal + 1;
+    let updatedUser = {
+      ...currentUser,
+      askedTotal: numberOfAskedQuestions.length,
+    };
+
+    console.log(currentUser.firstName);
+
+    let filteredUsers = globalState.users.filter(
+      (user) => user.firstName !== currentUser.firstName
+    );
+
+    let updatedUsers = filteredUsers.concat(updatedUser);
+
     setNewAskedQuestion(newQuestion);
     dispatch(addAnsweredQuestion(newQuestion));
-    // dispatch(addAnswered(newQuestion));
+    dispatch(updateAskedTotal(updatedUsers));
+
     goHome();
   }
 

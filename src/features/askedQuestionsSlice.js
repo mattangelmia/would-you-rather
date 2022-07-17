@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 import { answeredQuestionsReducer } from "./answeredQuestionsSlice";
 
 const initialState = [
@@ -63,6 +64,7 @@ export const askedQuestionsReducer = createSlice({
     addAnsweredQuestion: (state, action) => {
       let newState = state.concat(action.payload);
       console.log(action.payload);
+      console.log();
       return newState;
     },
   },

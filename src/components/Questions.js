@@ -8,7 +8,6 @@ export default function Questions(props) {
   function getQuestion() {
     // navigate(`question/${question.id}`);
   }
-  console.log(useSelector((state) => state.answeredQuestions));
 
   const state = useSelector((state) => state.questions);
   const globalState = useSelector((state) => state);
@@ -21,14 +20,6 @@ export default function Questions(props) {
 
   const newState = state.filter(
     (stateItem) => !stateItem.answeredBy.includes(filtered[0])
-  );
-
-  console.log(globalState.questions.filter);
-
-  console.log(
-    globalState.questions.filter(
-      (element) => globalState.answeredQuestions.id === element.id
-    )
   );
 
   return (

@@ -61,14 +61,10 @@ export default function QuestionCard(props) {
         question.option2.name === e.target.parentElement.innerText
     );
 
-    console.log(filteredQuestion[0]);
-
     if (e.target.parentElement.innerText === filteredQuestion[0].option1.name) {
-      console.log("option1");
       setOption1Count(1);
       setOption2Count(0);
     } else {
-      console.log("option2");
       setOption2Count(1);
       setOption1Count(0);
     }

@@ -6,6 +6,7 @@ import { logOutUser } from "../features/loggedInSlice";
 
 export default function NavBar() {
   const state = useSelector((state) => state);
+
   const dispatch = useDispatch();
   let navigate = useNavigate();
   function logOut() {
@@ -18,6 +19,10 @@ export default function NavBar() {
 
   function goToPoll() {
     navigate("/newpoll");
+  }
+
+  function goToLeaderboard() {
+    navigate("/leaderboard");
   }
 
   const loggedInFirstName = state.loggedIn.authUser.firstName;
@@ -37,7 +42,7 @@ export default function NavBar() {
           <Nav.Link onClick={goToPoll}>New Poll </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>Leaderboard</Nav.Link>
+          <Nav.Link onClick={goToLeaderboard}>Leaderboard</Nav.Link>
         </Nav.Item>
       </Nav>
       <div
