@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button, Accordion, Dropdown, Nav, Form } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ export default function NewPoll() {
   let numberOfAskedQuestions = globalState.questions.filter(
     (question) => question.askedBy === "matt"
   );
-  console.log(numberOfAskedQuestions.length);
+  console.log(numberOfAskedQuestions);
 
   let navigate = useNavigate();
   function goHome() {
@@ -34,7 +34,8 @@ export default function NewPoll() {
     }
   }
 
-  function logNewQuestion() {
+  function logNewQuestion(e) {
+    e.preventDefault();
     const newId =
       globalState.questions[globalState.questions.length - 1].id + 1;
 
@@ -50,10 +51,10 @@ export default function NewPoll() {
     let newTotal = currentUser.askedTotal + 1;
     let updatedUser = {
       ...currentUser,
-      askedTotal: numberOfAskedQuestions.length,
+      askedTotal: numberOfAskedQuestions.length + 1,
     };
 
-    console.log(currentUser.firstName);
+    console.log(updatedUser);
 
     let filteredUsers = globalState.users.filter(
       (user) => user.firstName !== currentUser.firstName

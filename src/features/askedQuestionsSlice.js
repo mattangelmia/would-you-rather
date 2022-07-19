@@ -62,7 +62,7 @@ export const askedQuestionsReducer = createSlice({
       return newState;
     },
     addAnsweredQuestion: (state, action) => {
-      let newState = state.concat(action.payload);
+      let newState = [...state].concat(action.payload);
       console.log(action.payload);
       console.log();
       return newState;
