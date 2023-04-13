@@ -33,7 +33,7 @@ export default function Results(props) {
         <div
           style={{ display: "flex", justifyContent: "center", marginTop: "5%" }}
         >
-          <Card style={{ width: "40vw" }}>
+          <Card style={{ width: "40vw" }} id="question-card">
             <Card.Header>Featured</Card.Header>
             <Card.Body>
               <Card.Title>matt asks: </Card.Title>

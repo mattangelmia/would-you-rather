@@ -34,9 +34,10 @@ export default function Leaderboard() {
           position: "relative",
           left: "33vw",
         }}
+        id="leaderboard-card-div"
       >
         {sorted.map((user, index) => (
-          <Card style={{ width: "30vw", margin: "30px" }}>
+          <Card style={{ width: "30vw", margin: "30px" }} id="question-card">
             <Card.Header>{user.firstName}</Card.Header>
             <Card.Body>
               <div style={{ display: "flex" }}>

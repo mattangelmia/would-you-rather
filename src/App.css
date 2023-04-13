@@ -7,6 +7,8 @@
   pointer-events: none;
 }
 
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -28,11 +30,30 @@
   color: #61dafb;
 }
 
+#toggle-dropdown{
+  color: red !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  #login-card{
+    width: 90% !important; 
+  }
+  #question-card{
+    width: 90% !important; 
+  }
+
+  #leaderboard-card-div{
+    left: 0vw !important;
   }
 }

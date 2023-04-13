@@ -81,8 +81,9 @@ export default function NewPoll() {
             margin: "20px",
             padding: "10px",
           }}
+          id="question-card"
         >
-          <Form>
+          <Form >
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <h4>Complete The Question</h4>
               <Form.Label>Would You Rather</Form.Label>

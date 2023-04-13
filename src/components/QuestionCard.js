@@ -195,7 +195,7 @@ export default function QuestionCard(props) {
             marginTop: "5%",
           }}
         >
-          <Card style={{ width: "40vw" }}>
+          <Card style={{ width: "40vw" }} id="question-card">
             <Card.Header>Featured</Card.Header>
             <Card.Body>
               <Card.Title>{askedQuestionByUser[0].askedBy} asks: </Card.Title>

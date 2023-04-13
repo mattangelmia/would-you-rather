@@ -51,24 +51,21 @@ export default function UserLogin() {
           alignItems: "center",
         }}
       >
-        <Card style={{ width: "50%" }}>
+        <Card style={{ width: "50%" }} id="login-card">
           <Card.Header>Would you Rather?</Card.Header>
           <Card.Body>
-            <Card.Title>Special title treatment</Card.Title>
-            <Card.Text>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </Card.Text>
+            <Card.Title>Select your user below and login</Card.Title>
+
           </Card.Body>
-          <Dropdown className="d-inline mx-2" onClick={handleSelect}>
+          <Dropdown className="d-inline mx-2" onClick={handleSelect} id="toggle-dropdown">
             <Dropdown.Toggle
               id="dropdown-autoclose-true"
-              style={{ width: "60%" }}
+              style={{ width: "70%" }}
             >
               {user}
             </Dropdown.Toggle>
 
-            <Dropdown.Menu style={{ width: "60%" }}>
+            <Dropdown.Menu style={{ width: "70%" }}>
               {users.map((user, index) => (
                 <Dropdown.Item href="#" key={index}>
                   {user.firstName}
@@ -79,7 +76,7 @@ export default function UserLogin() {
           <div>
             <Button
               variant="success"
-              style={{ width: "20%", marginTop: "3%", marginBottom: "1%" }}
+              style={{ width: "60%", marginTop: "3%", marginBottom: "1%" }}
               onClick={authorizeUser}
             >
               Login

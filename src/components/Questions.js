@@ -34,7 +34,7 @@ export default function Questions(props) {
     >
       {globalState.questions.map((question, index) => (
         <div key={index}>
-          <Card style={{ width: "40vw", margin: "30px" }}>
+          <Card style={{ width: "40vw", margin: "30px" }}  id="question-card">
             <Card.Header>Featured</Card.Header>
             <Card.Body>
               <Card.Title>{question.askedBy} asks: </Card.Title>
